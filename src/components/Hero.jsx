@@ -58,7 +58,7 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4">
                             {/* Botón primario: Ver Productos (Primary button: View Products) */}
                             <motion.a
-                                href="#products"
+                                href="/productos"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="flex items-center justify-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-primary-700 transition-all"
@@ -68,7 +68,7 @@ const Hero = () => {
 
                             {/* Botón secundario: Contáctanos (Secondary button: Contact Us) */}
                             <motion.a
-                                href="#contact"
+                                href="/contacto"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-primary-300 hover:text-primary-600 transition-all"
