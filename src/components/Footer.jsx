@@ -129,11 +129,11 @@ const Footer = () => {
                         <ul className="space-y-3 text-slate-400">
                             <li>
                                 <span className="text-white font-medium">Lunes - Viernes</span><br />
-                                8:00 AM - 6:00 PM
+                                6:00 AM - 1:20 PM
                             </li>
                             <li>
                                 <span className="text-white font-medium">Sábados</span><br />
-                                9:00 AM - 1:00 PM
+                                6:00 AM - 1:20 PM
                             </li>
                             <li>
                                 <span className="text-white font-medium">Domingos</span><br />
