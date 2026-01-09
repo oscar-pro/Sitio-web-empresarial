@@ -20,90 +20,90 @@ const products = [
     {
         id: 1,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-08.png",
-        name: "Exhibidor Premium",
-        category: "Exhibidores",
-        description: "Exhibidor de alta calidad diseñado para destacar tus productos. Fabricado con materiales resistentes y acabados profesionales.",
-        features: ["Material resistente", "Diseño personalizable", "Fácil montaje", "Acabado profesional"]
+        name: "Ejemplo De Producto",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 2,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-07.png",
-        name: "Exhibidor Compacto",
-        category: "Exhibidores",
-        description: "Solución compacta perfecta para espacios reducidos. Maximiza la visibilidad de tus productos sin ocupar mucho espacio.",
-        features: ["Diseño compacto", "Máxima visibilidad", "Portátil", "Versátil"]
+        name: "Ejemplo De Producto",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 3,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-17.png",
-        name: "Exhibidor Modular",
-        category: "Exhibidores",
-        description: "Sistema modular que se adapta a tus necesidades. Configura el espacio según tus productos y preferencias.",
-        features: ["Sistema modular", "Configurable", "Expandible", "Multifuncional"]
+        name: "Ejemplo De Producto",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 4,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-12.png",
-        name: "Exhibidor de Pared",
-        category: "Exhibidores",
-        description: "Aprovecha el espacio vertical con este exhibidor de pared. Ideal para tiendas y espacios comerciales.",
-        features: ["Montaje en pared", "Ahorra espacio", "Diseño elegante", "Fácil instalación"]
+        name: "Ejemplo De Producto",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 5,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-10.png",
-        name: "Exhibidor Giratorio",
-        category: "Exhibidores",
-        description: "Exhibidor giratorio que permite ver todos los productos desde cualquier ángulo. Perfecto para puntos de venta.",
-        features: ["Rotación 360°", "Múltiples niveles", "Estable", "Atractivo visual"]
+        name: "Ejemplo De Productoo",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 6,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-06.png",
-        name: "Exhibidor de Mostrador",
-        category: "Exhibidores",
-        description: "Diseñado específicamente para mostradores. Mantiene tus productos organizados y accesibles.",
-        features: ["Para mostrador", "Organizado", "Accesible", "Profesional"]
+        name: "Ejemplo De Productoador",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 7,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-16.png",
-        name: "Exhibidor de Lujo",
-        category: "Exhibidores Premium",
-        description: "Exhibidor de lujo con acabados premium. Ideal para productos de alta gama y boutiques exclusivas.",
-        features: ["Acabados premium", "Diseño exclusivo", "Iluminación LED", "Elegante"]
+        name: "Ejemplo De Producto",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 8,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-14.png",
-        name: "Exhibidor Industrial",
-        category: "Exhibidores",
-        description: "Robusto exhibidor de estilo industrial. Combina funcionalidad con estética moderna.",
-        features: ["Estilo industrial", "Extra resistente", "Moderno", "Duradero"]
+        name: "Ejemplo De Productoal",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 9,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-11.png",
-        name: "Exhibidor Minimalista",
-        category: "Exhibidores",
-        description: "Diseño minimalista que resalta tus productos. Perfecto para ambientes modernos y limpios.",
-        features: ["Diseño minimalista", "Limpio", "Moderno", "Versátil"]
+        name: "Ejemplo De Productosta",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 10,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-15.png",
-        name: "Exhibidor Multifuncional",
-        category: "Exhibidores",
-        description: "Solución multifuncional que se adapta a diferentes tipos de productos. Máxima versatilidad.",
-        features: ["Multifuncional", "Adaptable", "Práctico", "Eficiente"]
+        name: "Ejemplo De Productocional",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     },
     {
         id: 11,
         image: "https://diajorsas.com/wp-content/uploads/2024/12/diajorrr-13.png",
-        name: "Exhibidor Personalizado",
-        category: "Exhibidores a Medida",
-        description: "Diseñamos el exhibidor perfecto para tu negocio. Totalmente personalizable según tus necesidades.",
-        features: ["100% personalizable", "Diseño único", "A tu medida", "Asesoría incluida"]
+        name: "Ejemplo De Productoizado",
+        category:"Exhibidores y más",
+         description: "Descripción de ejemplo para este producto",
+        features: ['Ejemplo 1', 'Ejemplo2', 'Ejemplo 3', 'Ejemplo 4']
     }
 ];
 
@@ -179,7 +179,7 @@ const ProductShowcase = () => {
                                 <h3 className="font-bold text-slate-900 mb-1 group-hover:text-primary-600 transition-colors">
                                     {product.name}
                                 </h3>
-                                <p className="text-sm text-slate-500">{product.category}</p>
+                                <p className="text-sm text-slate-500">{product.category}</p>,
                             </div>
                         </motion.div>
                     ))}
@@ -209,7 +209,7 @@ const ProductShowcase = () => {
                             <div className="sticky top-0 bg-white border-b border-slate-200 p-6 flex items-center justify-between z-10 rounded-t-3xl">
                                 <div>
                                     <h2 className="text-3xl font-bold text-slate-900">{selectedProduct.name}</h2>
-                                    <p className="text-primary-600 font-medium mt-1">{selectedProduct.category}</p>
+                                    <p className="text-primary-600 font-medium mt-1">{selectedProduct.category}</p>,
                                 </div>
                                 <button
                                     onClick={closeModal}
