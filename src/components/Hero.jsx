@@ -18,18 +18,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Database, Shield, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { DURATION, EASING } from '../utils/animations';
 
 const Hero = () => {
     const { t } = useTranslation(); // Hook para traducciones (Translation hook)
 
     return (
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-b from-primary-50 to-white">
-            {/* Elementos de fondo decorativos con animación (Decorative background elements with animation) */}
+            {/* Elemento de fondo decorativo con animación optimizada (Optimized decorative background element) */}
+            {/* Reducido a 1 elemento blur para mejor rendimiento (Reduced to 1 blur element for better performance) */}
             <div className="absolute top-20 right-0 -z-10 opacity-30">
                 <div className="w-96 h-96 bg-primary-400 rounded-full blur-3xl filter mix-blend-multiply animate-blob"></div>
-            </div>
-            <div className="absolute top-40 left-10 -z-10 opacity-30">
-                <div className="w-72 h-72 bg-blue-300 rounded-full blur-3xl filter mix-blend-multiply animate-blob animation-delay-2000"></div>
             </div>
 
             <div className="container mx-auto px-6">
@@ -38,7 +37,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: DURATION.normal, ease: EASING.easeOut }}
                         className="lg:w-1/2"
                     >
                         {/* Título principal con gradiente (Main title with gradient) */}
@@ -59,9 +58,9 @@ const Hero = () => {
                             {/* Botón primario: Ver Productos (Primary button: View Products) */}
                             <motion.a
                                 href="/productos"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.05, transition: { duration: DURATION.fast } }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center justify-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-primary-700 transition-all"
+                                className="flex items-center justify-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-primary-700 transition-all duration-200"
                             >
                                 {t('hero.products_btn')} <ArrowRight size={20} />
                             </motion.a>
@@ -69,9 +68,9 @@ const Hero = () => {
                             {/* Botón secundario: Contáctanos (Secondary button: Contact Us) */}
                             <motion.a
                                 href="/contacto"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.05, transition: { duration: DURATION.fast } }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-primary-300 hover:text-primary-600 transition-all"
+                                className="flex items-center justify-center gap-2 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-primary-300 hover:text-primary-600 transition-all duration-200"
                             >
                                 {t('hero.contact_btn')}
                             </motion.a>
@@ -95,14 +94,14 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
+                        transition={{ duration: DURATION.medium, delay: 0.1, ease: EASING.easeOut }}
                         className="lg:w-1/2 relative"
                     >
                         {/* Grid de tarjetas de valor (Value cards grid) */}
                         <div className="relative z-10 grid grid-cols-2 gap-4">
                             {/* Tarjeta 1: Calidad Garantizada (Card 1: Guaranteed Quality) */}
                             <motion.div
-                                whileHover={{ y: -5 }}
+                                whileHover={{ y: -5, transition: { duration: DURATION.fast } }}
                                 className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center col-span-2 sm:col-span-1"
                             >
                                 <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4">
@@ -114,7 +113,7 @@ const Hero = () => {
 
                             {/* Tarjeta 2: Diseño a Medida (Card 2: Custom Design) */}
                             <motion.div
-                                whileHover={{ y: -5 }}
+                                whileHover={{ y: -5, transition: { duration: DURATION.fast } }}
                                 className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center col-span-2 sm:col-span-1 mt-0 sm:mt-8"
                             >
                                 <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-4">
@@ -126,7 +125,7 @@ const Hero = () => {
 
                             {/* Tarjeta 3: Producción Eficiente (Card 3: Efficient Production) */}
                             <motion.div
-                                whileHover={{ y: -5 }}
+                                whileHover={{ y: -5, transition: { duration: DURATION.fast } }}
                                 className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center text-center col-span-2"
                             >
                                 <div className="flex items-center gap-4 mb-2">

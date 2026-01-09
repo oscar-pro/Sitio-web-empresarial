@@ -11,8 +11,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle, AlertCircle, Shield } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { DURATION, viewportConfig } from '../utils/animations';
+import { validateContactForm, checkRateLimit, isBot, createHoneypot } from '../utils/security';
 
 const Contact = () => {
     const { t } = useTranslation(); // Hook para traducciones (Translation hook)
@@ -22,7 +24,8 @@ const Contact = () => {
         name: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
+        honeypot: '' // Campo honeypot para detectar bots (Honeypot field to detect bots)
     });
 
     // Estados de UI (UI states)
@@ -31,41 +34,16 @@ const Contact = () => {
     const [errors, setErrors] = useState({}); // Errores de validación (Validation errors)
 
     /**
-     * Validación del formulario (Form validation)
-     * Verifica que todos los campos requeridos estén completos y sean válidos
+     * Validación del formulario con seguridad (Secure form validation)
+     * Incluye sanitización, detección de XSS, spam, y validación robusta
+     * Includes sanitization, XSS detection, spam detection, and robust validation
      */
     const validateForm = () => {
-        const newErrors = {};
+        // Usar función de validación segura (Use secure validation function)
+        const validation = validateContactForm(formData);
 
-        // Validar nombre (Validate name)
-        if (!formData.name.trim()) {
-            newErrors.name = 'El nombre es requerido';
-        } else if (formData.name.trim().length < 2) {
-            newErrors.name = 'El nombre debe tener al menos 2 caracteres';
-        }
-
-        // Validar email (Validate email)
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!formData.email.trim()) {
-            newErrors.email = 'El correo electrónico es requerido';
-        } else if (!emailRegex.test(formData.email)) {
-            newErrors.email = 'Por favor ingresa un correo electrónico válido';
-        }
-
-        // Validar asunto (Validate subject)
-        if (!formData.subject.trim()) {
-            newErrors.subject = 'El asunto es requerido';
-        }
-
-        // Validar mensaje (Validate message)
-        if (!formData.message.trim()) {
-            newErrors.message = 'El mensaje es requerido';
-        } else if (formData.message.trim().length < 10) {
-            newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        setErrors(validation.errors);
+        return validation;
     };
 
     /**
@@ -84,8 +62,25 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validar formulario antes de enviar (Validate form before submitting)
-        if (!validateForm()) {
+        // 1. Verificar honeypot (Check honeypot)
+        if (isBot(formData.honeypot)) {
+            console.warn('Bot detected via honeypot');
+            return; // Ignorar silenciosamente (Silently ignore)
+        }
+
+        // 2. Verificar rate limiting (Check rate limiting)
+        const rateLimitCheck = checkRateLimit('contact-form', 3, 15);
+        if (!rateLimitCheck.allowed) {
+            setErrors({
+                general: rateLimitCheck.message
+            });
+            setSubmitStatus('error');
+            return;
+        }
+
+        // 3. Validar y sanitizar formulario (Validate and sanitize form)
+        const validation = validateForm();
+        if (!validation.valid) {
             return;
         }
 
@@ -93,15 +88,18 @@ const Contact = () => {
         setSubmitStatus(null);
 
         try {
+            // Usar datos sanitizados (Use sanitized data)
+            const sanitizedData = validation.sanitizedData;
+
             // Simulación de envío (Simulated submission)
             // REEMPLAZAR CON TU LLAMADA API REAL (REPLACE WITH YOUR ACTUAL API CALL)
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            console.log('Datos del formulario:', formData);
+            console.log('Datos sanitizados del formulario:', sanitizedData);
 
             // Éxito (Success)
             setSubmitStatus('success');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', subject: '', message: '', honeypot: '' });
             setErrors({});
 
             // Limpiar mensaje de éxito después de 5 segundos
@@ -176,7 +174,8 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={viewportConfig}
+                        transition={{ duration: DURATION.normal }}
                         className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-6"
                     >
                         <MessageSquare size={16} />
@@ -185,7 +184,8 @@ const Contact = () => {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={viewportConfig}
+                        transition={{ duration: DURATION.normal }}
                         className="text-4xl font-bold text-slate-900 mb-4"
                     >
                         {t('contact.title')}
@@ -193,8 +193,8 @@ const Contact = () => {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        viewport={viewportConfig}
+                        transition={{ delay: 0.1, duration: DURATION.normal }}
                         className="text-lg text-slate-600 max-w-2xl mx-auto"
                     >
                         {t('contact.description')}
@@ -206,7 +206,8 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={viewportConfig}
+                        transition={{ duration: DURATION.medium }}
                         className="space-y-8"
                     >
                         <div>
@@ -226,10 +227,10 @@ const Contact = () => {
                                     rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ x: 5 }}
-                                    className="flex items-start gap-4 p-6 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all group cursor-pointer"
+                                    viewport={viewportConfig}
+                                    transition={{ delay: index * 0.05, duration: DURATION.normal }}
+                                    whileHover={{ x: 5, transition: { duration: DURATION.fast } }}
+                                    className="flex items-start gap-4 p-6 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all duration-200 group cursor-pointer"
                                 >
                                     <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors flex-shrink-0">
                                         {item.icon}
@@ -246,13 +247,14 @@ const Contact = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={viewportConfig}
+                            transition={{ duration: DURATION.normal }}
                             className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white"
                         >
-                            <h4 className="font-bold text-lg mb-4">Horario de Atención</h4>
+                            <h4 className="font-bold text-lg mb-4">{t('contact.schedule_title')}</h4>
                             <div className="space-y-2 text-primary-50">
-                                <p>Lunes - Sabados: 6:00 AM - 1:20 PM</p>
-                                <p>Domingos: Cerrado</p>
+                                <p>{t('contact.schedule_weekdays')}</p>
+                                <p>{t('contact.schedule_sunday')}</p>
                             </div>
                         </motion.div>
                     </motion.div>
@@ -261,7 +263,8 @@ const Contact = () => {
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={viewportConfig}
+                        transition={{ duration: DURATION.medium }}
                         className="bg-white rounded-2xl shadow-xl p-8 border border-slate-100"
                     >
                         <form onSubmit={handleSubmit} className="space-y-6">
@@ -277,9 +280,9 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="Juan Pérez"
-                                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all ${errors.name
-                                            ? 'border-red-300 focus:ring-red-500'
-                                            : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
+                                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all duration-200 ${errors.name
+                                        ? 'border-red-300 focus:ring-red-500'
+                                        : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
                                         }`}
                                 />
                                 {errors.name && (
@@ -303,8 +306,8 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="ejemplo@correo.com"
                                     className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all ${errors.email
-                                            ? 'border-red-300 focus:ring-red-500'
-                                            : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
+                                        ? 'border-red-300 focus:ring-red-500'
+                                        : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
                                         }`}
                                 />
                                 {errors.email && (
@@ -328,8 +331,8 @@ const Contact = () => {
                                     onChange={handleChange}
                                     placeholder="¿En qué podemos ayudarte?"
                                     className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all ${errors.subject
-                                            ? 'border-red-300 focus:ring-red-500'
-                                            : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
+                                        ? 'border-red-300 focus:ring-red-500'
+                                        : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
                                         }`}
                                 />
                                 {errors.subject && (
@@ -353,8 +356,8 @@ const Contact = () => {
                                     rows="5"
                                     placeholder="Cuéntanos más sobre tu proyecto..."
                                     className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-all resize-none ${errors.message
-                                            ? 'border-red-300 focus:ring-red-500'
-                                            : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
+                                        ? 'border-red-300 focus:ring-red-500'
+                                        : 'border-slate-200 focus:ring-primary-500 focus:border-transparent'
                                         }`}
                                 ></textarea>
                                 {errors.message && (
@@ -365,15 +368,39 @@ const Contact = () => {
                                 )}
                             </div>
 
+                            {/* Campo Honeypot - Anti-bot (Honeypot Field - Anti-bot) */}
+                            {/* Este campo está oculto y solo los bots lo llenan (This field is hidden and only bots fill it) */}
+                            <input
+                                {...createHoneypot()}
+                                name="honeypot"
+                                value={formData.honeypot}
+                                onChange={handleChange}
+                                aria-hidden="true"
+                            />
+
+                            {/* Error general (rate limiting, etc) */}
+                            {errors.general && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: DURATION.fast }}
+                                    className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl flex items-center gap-2"
+                                >
+                                    <Shield size={20} />
+                                    <span>{errors.general}</span>
+                                </motion.div>
+                            )}
+
                             {/* Mensajes de estado (Status messages) */}
                             {submitStatus === 'success' && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: DURATION.fast }}
                                     className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-xl flex items-center gap-2"
                                 >
                                     <CheckCircle size={20} />
-                                    <span>¡Mensaje enviado exitosamente! Te contactaremos pronto.</span>
+                                    <span>{t('contact.form.success')}</span>
                                 </motion.div>
                             )}
 
@@ -381,10 +408,11 @@ const Contact = () => {
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: DURATION.fast }}
                                     className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl flex items-center gap-2"
                                 >
                                     <AlertCircle size={20} />
-                                    <span>Hubo un error al enviar el mensaje. Por favor intenta nuevamente.</span>
+                                    <span>{t('contact.form.error')}</span>
                                 </motion.div>
                             )}
 
@@ -395,14 +423,14 @@ const Contact = () => {
                                 whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                                 whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                                 className={`w-full py-3 rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 ${isSubmitting
-                                        ? 'bg-slate-400 cursor-not-allowed'
-                                        : 'bg-primary-600 text-white hover:bg-primary-700'
+                                    ? 'bg-slate-400 cursor-not-allowed'
+                                    : 'bg-primary-600 text-white hover:bg-primary-700'
                                     }`}
                             >
                                 {isSubmitting ? (
                                     <>
                                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                        Enviando...
+                                        {t('contact.form.sending')}
                                     </>
                                 ) : (
                                     <>

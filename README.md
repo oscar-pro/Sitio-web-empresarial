@@ -129,3 +129,5 @@ Edita `src/i18n.js` para modificar o añadir traducciones.
 ---
 
 Desarrollado con ❤️ para Diajor S.A.S
+
+Gracias por su atencion y pido disculpas por mi atrevimiento.

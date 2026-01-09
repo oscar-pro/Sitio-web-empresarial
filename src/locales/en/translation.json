@@ -1,0 +1,209 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "products": "Products",
+        "contact": "Contact",
+        "contact_btn": "Contact Us",
+        "lang_btn": "ES"
+    },
+    "hero": {
+        "title": "Diajor S.A.S",
+        "subtitle": "Craftsmanship & Quality",
+        "description": "We create unique artisanal products designed to stand out and last. Displays and more, made with passion.",
+        "products_btn": "View Products",
+        "contact_btn": "Contact Us",
+        "secure": "Secure",
+        "fast": "Fast",
+        "reliable": "Reliable"
+    },
+    "products": {
+        "title": "Our Artisanal Products",
+        "description": "Discover our exclusive collection of products made with dedication and quality.",
+        "modal": {
+            "description_title": "Description",
+            "features_title": "Features",
+            "interested_title": "Interested in this product?",
+            "interested_desc": "Contact us for more information and quotes",
+            "quote_btn": "Request Quote",
+            "close_btn": "Close"
+        },
+        "items": {
+            "1": {
+                "name": "Premium Display",
+                "category": "Displays",
+                "description": "High-quality display designed to highlight your products. Made with resistant materials and professional finishes.",
+                "features": [
+                    "Resistant material",
+                    "Customizable design",
+                    "Easy assembly",
+                    "Professional finish"
+                ]
+            },
+            "2": {
+                "name": "Compact Display",
+                "category": "Displays",
+                "description": "Perfect compact solution for small spaces. Maximizes product visibility without taking up much space.",
+                "features": [
+                    "Compact design",
+                    "Maximum visibility",
+                    "Portable",
+                    "Versatile"
+                ]
+            },
+            "3": {
+                "name": "Modular Display",
+                "category": "Displays",
+                "description": "Modular system that adapts to your needs. Configure the space according to your products and preferences.",
+                "features": [
+                    "Modular system",
+                    "Configurable",
+                    "Expandable",
+                    "Multifunctional"
+                ]
+            },
+            "4": {
+                "name": "Wall Display",
+                "category": "Displays",
+                "description": "Take advantage of vertical space with this wall display. Ideal for stores and commercial spaces.",
+                "features": [
+                    "Wall mounting",
+                    "Space saving",
+                    "Elegant design",
+                    "Easy installation"
+                ]
+            },
+            "5": {
+                "name": "Rotating Display",
+                "category": "Displays",
+                "description": "Rotating display that allows viewing all products from any angle. Perfect for points of sale.",
+                "features": [
+                    "360° rotation",
+                    "Multiple levels",
+                    "Stable",
+                    "Visual appeal"
+                ]
+            },
+            "6": {
+                "name": "Counter Display",
+                "category": "Displays",
+                "description": "Specifically designed for counters. Keeps your products organized and accessible.",
+                "features": [
+                    "For counters",
+                    "Organized",
+                    "Accessible",
+                    "Professional"
+                ]
+            },
+            "7": {
+                "name": "Luxury Display",
+                "category": "Premium Displays",
+                "description": "Luxury display with premium finishes. Ideal for high-end products and exclusive boutiques.",
+                "features": [
+                    "Premium finishes",
+                    "Exclusive design",
+                    "LED lighting",
+                    "Elegant"
+                ]
+            },
+            "8": {
+                "name": "Industrial Display",
+                "category": "Displays",
+                "description": "Robust industrial-style display. Combines functionality with modern aesthetics.",
+                "features": [
+                    "Industrial style",
+                    "Extra resistant",
+                    "Modern",
+                    "Durable"
+                ]
+            },
+            "9": {
+                "name": "Minimalist Display",
+                "category": "Displays",
+                "description": "Minimalist design that highlights your products. Perfect for modern and clean environments.",
+                "features": [
+                    "Minimalist design",
+                    "Clean",
+                    "Modern",
+                    "Versatile"
+                ]
+            },
+            "10": {
+                "name": "Multifunctional Display",
+                "category": "Displays",
+                "description": "Multifunctional solution that adapts to different types of products. Maximum versatility.",
+                "features": [
+                    "Multifunctional",
+                    "Adaptable",
+                    "Practical",
+                    "Efficient"
+                ]
+            },
+            "11": {
+                "name": "Custom Display",
+                "category": "Custom Displays",
+                "description": "We design the perfect display for your business. Fully customizable according to your needs.",
+                "features": [
+                    "100% customizable",
+                    "Unique design",
+                    "Tailor-made",
+                    "Consulting included"
+                ]
+            }
+        }
+    },
+    "about": {
+        "title": "About Us",
+        "description": "At Diajor S.A.S, we are dedicated to offering innovative artisanal solutions. Our team works tirelessly to provide you with high-quality products.",
+        "mission_title": "Our Mission",
+        "mission_desc": "To provide artisanal products that help businesses stand out, offering quality and exceptional service.",
+        "vision_title": "Our Vision",
+        "vision_desc": "To be leaders in the artisanal product market, recognized for our innovation and quality.",
+        "values_title": "Our Values",
+        "values": {
+            "innovation": "Innovation",
+            "quality": "Quality",
+            "commitment": "Commitment",
+            "transparency": "Transparency",
+            "teamwork": "Teamwork"
+        },
+        "team_title": "Our Team",
+        "team_desc": "Meet the people behind our artisanal quality.",
+        "gallery_title": "Our Workshop and Team"
+    },
+    "contact": {
+        "badge": "Contact Us",
+        "title": "Have a Project in Mind?",
+        "description": "We are ready to help you. Send us a message and we will get back to you as soon as possible.",
+        "info_title": "Contact Information",
+        "info_desc": "Fill out the form or contact us directly.",
+        "email": "Email",
+        "sales": "Sales",
+        "office": "Office",
+        "location": "Location",
+        "schedule_title": "Business Hours",
+        "schedule_weekdays": "Monday - Saturday: 6:00 AM - 1:20 PM",
+        "schedule_sunday": "Sunday: Closed",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "subject": "Subject",
+            "message": "Message",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully! We will contact you soon.",
+            "error": "There was an error sending the message. Please try again."
+        }
+    },
+    "footer": {
+        "nav_title": "Navigation",
+        "contact_title": "Contact",
+        "rights": "© 2024 Diajor S.A.S. All rights reserved."
+    },
+    "common": {
+        "loading": "Loading...",
+        "loading_page": "Loading page...",
+        "error": "Error",
+        "close": "Close"
+    }
+}

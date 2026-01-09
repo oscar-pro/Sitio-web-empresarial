@@ -1,0 +1,209 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "about": "Nosotros",
+        "products": "Productos",
+        "contact": "Contacto",
+        "contact_btn": "Contactar",
+        "lang_btn": "EN"
+    },
+    "hero": {
+        "title": "Diajor S.A.S",
+        "subtitle": "Artesanía y Calidad",
+        "description": "Creamos productos artesanales únicos, diseñados para destacar y perdurar. Exhibidores y más, hechos con pasión.",
+        "products_btn": "Ver Productos",
+        "contact_btn": "Contáctanos",
+        "secure": "Seguro",
+        "fast": "Rápido",
+        "reliable": "Fiable"
+    },
+    "products": {
+        "title": "Nuestros Productos Artesanales",
+        "description": "Descubre nuestra colección exclusiva de productos hechos con dedicación y calidad.",
+        "modal": {
+            "description_title": "Descripción",
+            "features_title": "Características",
+            "interested_title": "¿Interesado en este producto?",
+            "interested_desc": "Contáctanos para más información y cotizaciones",
+            "quote_btn": "Solicitar Cotización",
+            "close_btn": "Cerrar"
+        },
+        "items": {
+            "1": {
+                "name": "Exhibidor Premium",
+                "category": "Exhibidores",
+                "description": "Exhibidor de alta calidad diseñado para destacar tus productos. Fabricado con materiales resistentes y acabados profesionales.",
+                "features": [
+                    "Material resistente",
+                    "Diseño personalizable",
+                    "Fácil montaje",
+                    "Acabado profesional"
+                ]
+            },
+            "2": {
+                "name": "Exhibidor Compacto",
+                "category": "Exhibidores",
+                "description": "Solución compacta perfecta para espacios reducidos. Maximiza la visibilidad de tus productos sin ocupar mucho espacio.",
+                "features": [
+                    "Diseño compacto",
+                    "Máxima visibilidad",
+                    "Portátil",
+                    "Versátil"
+                ]
+            },
+            "3": {
+                "name": "Exhibidor Modular",
+                "category": "Exhibidores",
+                "description": "Sistema modular que se adapta a tus necesidades. Configura el espacio según tus productos y preferencias.",
+                "features": [
+                    "Sistema modular",
+                    "Configurable",
+                    "Expandible",
+                    "Multifuncional"
+                ]
+            },
+            "4": {
+                "name": "Exhibidor de Pared",
+                "category": "Exhibidores",
+                "description": "Aprovecha el espacio vertical con este exhibidor de pared. Ideal para tiendas y espacios comerciales.",
+                "features": [
+                    "Montaje en pared",
+                    "Ahorra espacio",
+                    "Diseño elegante",
+                    "Fácil instalación"
+                ]
+            },
+            "5": {
+                "name": "Exhibidor Giratorio",
+                "category": "Exhibidores",
+                "description": "Exhibidor giratorio que permite ver todos los productos desde cualquier ángulo. Perfecto para puntos de venta.",
+                "features": [
+                    "Rotación 360°",
+                    "Múltiples niveles",
+                    "Estable",
+                    "Atractivo visual"
+                ]
+            },
+            "6": {
+                "name": "Exhibidor de Mostrador",
+                "category": "Exhibidores",
+                "description": "Diseñado específicamente para mostradores. Mantiene tus productos organizados y accesibles.",
+                "features": [
+                    "Para mostrador",
+                    "Organizado",
+                    "Accesible",
+                    "Profesional"
+                ]
+            },
+            "7": {
+                "name": "Exhibidor de Lujo",
+                "category": "Exhibidores Premium",
+                "description": "Exhibidor de lujo con acabados premium. Ideal para productos de alta gama y boutiques exclusivas.",
+                "features": [
+                    "Acabados premium",
+                    "Diseño exclusivo",
+                    "Iluminación LED",
+                    "Elegante"
+                ]
+            },
+            "8": {
+                "name": "Exhibidor Industrial",
+                "category": "Exhibidores",
+                "description": "Robusto exhibidor de estilo industrial. Combina funcionalidad con estética moderna.",
+                "features": [
+                    "Estilo industrial",
+                    "Extra resistente",
+                    "Moderno",
+                    "Duradero"
+                ]
+            },
+            "9": {
+                "name": "Exhibidor Minimalista",
+                "category": "Exhibidores",
+                "description": "Diseño minimalista que resalta tus productos. Perfecto para ambientes modernos y limpios.",
+                "features": [
+                    "Diseño minimalista",
+                    "Limpio",
+                    "Moderno",
+                    "Versátil"
+                ]
+            },
+            "10": {
+                "name": "Exhibidor Multifuncional",
+                "category": "Exhibidores",
+                "description": "Solución multifuncional que se adapta a diferentes tipos de productos. Máxima versatilidad.",
+                "features": [
+                    "Multifuncional",
+                    "Adaptable",
+                    "Práctico",
+                    "Eficiente"
+                ]
+            },
+            "11": {
+                "name": "Exhibidor Personalizado",
+                "category": "Exhibidores a Medida",
+                "description": "Diseñamos el exhibidor perfecto para tu negocio. Totalmente personalizable según tus necesidades.",
+                "features": [
+                    "100% personalizable",
+                    "Diseño único",
+                    "A tu medida",
+                    "Asesoría incluida"
+                ]
+            }
+        }
+    },
+    "about": {
+        "title": "Sobre Nosotros",
+        "description": "En Diajor S.A.S, nos dedicamos a ofrecer soluciones artesanales innovadoras. Nuestro equipo trabaja incansablemente para brindarte productos de alta calidad.",
+        "mission_title": "Nuestra Misión",
+        "mission_desc": "Proporcionar productos artesanales que ayuden a las empresas a destacar, ofreciendo calidad y un servicio excepcional.",
+        "vision_title": "Nuestra Visión",
+        "vision_desc": "Ser líderes en el mercado de productos artesanales, reconocidos por nuestra innovación y calidad.",
+        "values_title": "Nuestros Valores",
+        "values": {
+            "innovation": "Innovación",
+            "quality": "Calidad",
+            "commitment": "Compromiso",
+            "transparency": "Transparencia",
+            "teamwork": "Trabajo en equipo"
+        },
+        "team_title": "Nuestro Equipo",
+        "team_desc": "Conoce a las personas detrás de nuestra calidad artesanal.",
+        "gallery_title": "Nuestro Taller y Equipo"
+    },
+    "contact": {
+        "badge": "Contáctanos",
+        "title": "¿Tienes un Proyecto en Mente?",
+        "description": "Estamos listos para ayudarte. Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.",
+        "info_title": "Información de Contacto",
+        "info_desc": "Completa el formulario o contáctanos directamente.",
+        "email": "Correo Electrónico",
+        "sales": "Ventas",
+        "office": "Oficina",
+        "location": "Ubicación",
+        "schedule_title": "Horario de Atención",
+        "schedule_weekdays": "Lunes - Sábados: 6:00 AM - 1:20 PM",
+        "schedule_sunday": "Domingos: Cerrado",
+        "form": {
+            "name": "Nombre Completo",
+            "email": "Correo Electrónico",
+            "subject": "Asunto",
+            "message": "Mensaje",
+            "send": "Enviar Mensaje",
+            "sending": "Enviando...",
+            "success": "¡Mensaje enviado exitosamente! Te contactaremos pronto.",
+            "error": "Hubo un error al enviar el mensaje. Por favor intenta nuevamente."
+        }
+    },
+    "footer": {
+        "nav_title": "Navegación",
+        "contact_title": "Contacto",
+        "rights": "© 2024 Diajor S.A.S. Todos los derechos reservados."
+    },
+    "common": {
+        "loading": "Cargando...",
+        "loading_page": "Cargando página...",
+        "error": "Error",
+        "close": "Cerrar"
+    }
+}

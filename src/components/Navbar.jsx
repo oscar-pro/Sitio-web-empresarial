@@ -22,6 +22,7 @@ import { Menu, X, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png'; // Importar el logo (Import logo)
+import { DURATION } from '../utils/animations';
 
 const Navbar = () => {
     // Estados del componente (Component states)
@@ -62,8 +63,8 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed w-full z-50 transition-all duration-300 ${scrolled || location.pathname !== '/'
-                    ? 'bg-white/95 backdrop-blur-md shadow-lg py-4'
-                    : 'bg-transparent py-6'
+                ? 'bg-white/95 backdrop-blur-md shadow-lg py-4'
+                : 'bg-transparent py-6'
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
@@ -72,6 +73,7 @@ const Navbar = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: DURATION.normal }}
                         className="flex items-center gap-2 cursor-pointer"
                     >
                         <img
@@ -89,14 +91,14 @@ const Navbar = () => {
                             key={index}
                             to={link.path}
                             className={`font-medium transition-colors relative group ${location.pathname === link.path
-                                    ? 'text-primary-600'
-                                    : 'text-slate-600 hover:text-primary-600'
+                                ? 'text-primary-600'
+                                : 'text-slate-600 hover:text-primary-600'
                                 }`}
                         >
                             <motion.span
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
+                                transition={{ delay: index * 0.05, duration: DURATION.fast }}
                             >
                                 {link.name}
                             </motion.span>
@@ -121,9 +123,9 @@ const Navbar = () => {
                     {/* Botón de contacto (Contact button) */}
                     <Link to="/contacto">
                         <motion.button
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.05, transition: { duration: DURATION.fast } }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-primary-600 text-white px-6 py-2 rounded-full font-medium shadow-md hover:bg-primary-700 transition-colors"
+                            className="bg-primary-600 text-white px-6 py-2 rounded-full font-medium shadow-md hover:bg-primary-700 transition-colors duration-200"
                         >
                             {t('nav.contact_btn')}
                         </motion.button>
@@ -159,6 +161,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: DURATION.normal }}
                         className="md:hidden bg-white border-t border-slate-100 overflow-hidden shadow-xl"
                     >
                         <div className="flex flex-col p-6 gap-4">

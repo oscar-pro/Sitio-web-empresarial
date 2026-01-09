@@ -21,9 +21,12 @@
   @apply bg-primary-300 rounded-full hover:bg-primary-500 transition-colors;
 }
 
-/* Animaciones personalizadas */
-@keyframes blob {
+/* ============================================ */
+/* ANIMACIONES OPTIMIZADAS (OPTIMIZED ANIMATIONS) */
+/* ============================================ */
 
+/* Animación blob optimizada - Reducida de 7s a 4s para mejor rendimiento */
+@keyframes blob {
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -33,13 +36,14 @@
     transform: translate(30px, -50px) scale(1.1);
   }
 
-  100% {
+  66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
 }
 
 .animate-blob {
-  animation: blob 7s infinite;
+  animation: blob 4s infinite ease-in-out;
+  will-change: transform; /* Optimización GPU */
 }
 
 .animation-delay-2000 {
@@ -48,14 +52,69 @@
 
 .animation-delay-4000 {
   animation-delay: 4s;
-} 
+}
+
+/* ============================================ */
+/* OPTIMIZACIONES DE RENDIMIENTO (PERFORMANCE) */
+/* ============================================ */
+
+/* Hint al navegador sobre propiedades que cambiarán */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Habilitar aceleración por hardware */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ============================================ */
+/* ACCESIBILIDAD - REDUCED MOTION */
+/* ============================================ */
+
+/* Respetar preferencia de movimiento reducido del usuario */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-blob {
+    animation: none;
+  }
+}
+
+/* ============================================ */
+/* ESTILOS GLOBALES (GLOBAL STYLES) */
+/* ============================================ */
 
 /* Estilos para enlaces */
 a {
-  @apply text-primary-600 hover:text-primary-800 transition-colors;
+  @apply text-primary-600 hover:text-primary-800 transition-colors duration-200;
 }
 
 /* Estilos para botones */
 button {
-  @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-primary-700 transition-all;
+  @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-primary-700 transition-all duration-200;
+}
+
+/* Smooth scroll para toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
