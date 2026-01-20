@@ -209,7 +209,7 @@ const ProductShowcase = () => {
                             <div className="sticky top-0 bg-white border-b border-slate-200 p-6 flex items-center justify-between z-10 rounded-t-3xl">
                                 <div>
                                     <h2 className="text-3xl font-bold text-slate-900">{selectedProduct.name}</h2>
-                                    <p className="text-primary-600 font-medium mt-1">{selectedProduct.category}</p>,
+                                    <p className="text-primary-600 font-medium mt-1">{selectedProduct.category}</p>
                                 </div>
                                 <button
                                     onClick={closeModal}
