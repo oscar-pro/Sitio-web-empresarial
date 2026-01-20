@@ -179,7 +179,7 @@ const ProductShowcase = () => {
                                 <h3 className="font-bold text-slate-900 mb-1 group-hover:text-primary-600 transition-colors">
                                     {product.name}
                                 </h3>
-                                <p className="text-sm text-slate-500">{product.category}</p>,
+                                <p className="text-sm text-slate-500">{product.category}</p>
                             </div>
                         </motion.div>
                     ))}
